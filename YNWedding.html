@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Kingkan & Natthaphong</title>
+    <link rel="icon" type="image/png" href="images/Logo.png">    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #FAF8F5;
+            --section-bg: #F5EFEB;
+            --primary-text: #5A4A42;
+            --accent-pink: #D4A39A;
+            --accent-dusty: #C48B81;
+            --gold-accent: #C9A86A;
+            --font-serif: 'Playfair Display', serif;
+            --font-cursive: 'Great Vibes', cursive;
+            --font-thai-script: 'Charm', cursive;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.6;
+        }
+
+        /* Container Limit */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Divider Design */
+        .divider-heart {
+            text-align: center;
+            margin: 10px 0 20px 0;
+            color: var(--accent-pink);
+            font-size: 14px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .divider-heart::before, .divider-heart::after {
+            content: '';
+            height: 1px;
+            width: 50px;
+            background-color: var(--accent-pink);
+            opacity: 0.5;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(250, 248, 245, 0.9);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .logo span {
+            color: var(--accent-pink);
+            font-size: 14px;
+        }
+        
+         .logoYN {
+            width: 40px;
+            height: 50px;
+            background-image: url('images/Logo.png');
+            background-size: cover;
+            background-position: center;
+            
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-text);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-dusty);
+        }
+
+        .music-btn {
+            border: 1px solid var(--primary-text);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 60px;
+            position: relative;
+            background: linear-gradient(to right, rgba(250,248,245,1) 30%, rgba(250,248,245,0) 70%),
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1600') no-repeat right center / cover;
+        }
+
+        .hero-content {
+            padding-left: 8%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .subtitle-top {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .names {
+            font-family: var(--font-cursive);
+            font-size: 70px;
+            color: var(--accent-dusty);
+            line-height: 1.1;
+            font-weight: normal;
+        }
+
+        .names span {
+            display: block;
+            font-size: 30px;
+            margin: -10px 0;
+        }
+
+        .wedding-date {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            letter-spacing: 3px;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .marry-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        /* --- Countdown Section --- */
+        .countdown-section {
+            background-color: var(--section-bg);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .timer-box {
+            position: relative;
+        }
+        .timer-box:not(:last-child)::after {
+            content: '|';
+            position: absolute;
+            right: -20px;
+            top: 10px;
+            color: #DDD;
+        }
+
+        .timer-number {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            color: var(--accent-dusty);
+        }
+
+        .timer-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        /* --- Our Story Section --- */
+        .story-section {
+            padding: 80px 0;
+        }
+
+        .story-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .story-text-side {
+            flex: 1;
+            text-align: center;
+            padding-right: 20px;
+        }
+
+        .story-thai-desc {
+            font-size: 14px;
+            color: #666;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .thank-you-script {
+            font-family: var(--font-cursive);
+            font-size: 32px;
+            color: var(--accent-dusty);
+            margin-top: 20px;
+        }
+
+        .story-cards-side {
+            flex: 2;
+            display: flex;
+            gap: 20px;
+        }
+
+        .polaroid-card {
+            background: #fff;
+            padding: 10px 10px 20px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            flex: 1;
+        }
+
+        .polaroid-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .polaroid-title {
+            font-size: 13px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .polaroid-date {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* --- The Big Day (Timeline) Section --- */
+        .big-day-section {
+            background-color: var(--section-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .timeline-grid {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: #E0D7D0;
+        }
+
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: var(--gold-accent);
+        }
+
+        .timeline-time {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-name {
+            font-family: var(--font-thai-script);
+            font-size: 18px;
+            color: var(--primary-text);
+        }
+
+        /* --- Details & Info Section --- */
+        .info-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .info-grid {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .info-box {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .info-box:not(:last-child) {
+            border-right: 1px solid #EEE;
+        }
+
+        .info-header {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .color-circle {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 1px solid #000000;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--accent-pink);
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-dusty);
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            background-color: var(--section-bg);
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .footer-title {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .footer-script {
+            font-family: var(--font-cursive);
+            font-size: 28px;
+            color: var(--accent-dusty);
+            margin-top: 10px;
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero {
+                background-position: center;
+                justify-content: center;
+            }
+            .hero-content {
+                padding-left: 0;
+            }
+            .story-container, .timeline-grid, .info-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .story-cards-side {
+                flex-direction: column;
+            }
+            .timeline-item:not(:last-child)::after, .info-box:not(:last-child) {
+                border: none;
+            }
+            .timeline-item:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <!-- <div class="logo">K & N <span>♡</span></div> -->
+        <div class="logoYN"></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#rsvp">Location</a></li>
+                <!-- <li><a href="#rsvp">RSVP</a></li> -->
+            </ul>
+        </nav>
+        <div></div>
+        <!-- <div class="music-btn"><i class="fa-solid fa-music"></i></div> -->
+    </header>
+
+    <!-- Main Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="subtitle-top">The Wedding Of</div>
+            <h1 class="names">
+                Kingkan
+                <span>&</span>
+                Natthaphong
+            </h1>
+            <div class="wedding-date">22 November 2026</div>
+            <div class="divider-heart">♡</div>
+            <div class="marry-text">We're Getting Married</div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown-section">
+        <div class="section-title">Countdown to Our Big Day</div>
+        <div class="divider-heart">♡</div>
+        <div class="wedding-date">22 November 2026</div>
+        <div class="timer-grid" id="countdown">
+            <div class="timer-box">
+                <div class="timer-number" id="days">00</div>
+                <div class="timer-label">Days</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-number" id="hours">00</div>
+                <div class="timer-label">Hours</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-number" id="minutes">00</div>
+                <div class="timer-label">Minutes</div>
+            </div>
+            <div class="timer-box">
+                <div class="timer-number" id="seconds">00</div>
+                <div class="timer-label">Seconds</div>
+            </div>
+        </div>
+    </section>
+    <section class="card-section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Invitation Card</h2>
+                <div class="divider-heart">♡</div>
+                
+                <div class="flip-card">
+                    <!-- เพิ่ม id="weddingCardInner" -->
+                    <div class="flip-card-inner" id="weddingCardInner">
+                        <div class="flip-card-front">
+                            <img src="images/card-front.png" alt="Wedding Card Front">
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="images/card-back.png" alt="Wedding Card Back">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-hint">
+                    <i class="fa-solid fa-rotate"></i> แตะเพื่อพลิกดูด้านหน้า - หลัง
+                </div>
+            </div>
+           <!-- 1. ปุ่มเปิดการ์ด (วางจุดที่ต้องการ) -->
+<div style="text-align: center; margin-top: 20px;">
+    <button onclick="openCardModal()" class="btn" style="border:none; cursor:pointer;">
+        💌 ดูการ์ดเชิญฉบับเต็ม
+    </button>
+</div>
+
+<!-- 2. Modal Popup + Image Slider -->
+<div id="cardModal" onclick="closeCardModalOnOut(event)" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); backdrop-filter: blur(3px); z-index:2000; justify-content:center; align-items:center; padding:20px; box-sizing:border-box;">
+    
+    <div style="position:relative; max-width:420px; width:100%; background:#fff; padding:15px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.3); display:flex; flex-direction:column; align-items:center;">
+        
+        <!-- ปุ่มปิด X -->
+        <span onclick="closeCardModal()" style="position:absolute; top:-12px; right:-12px; background:#fff; color:#333; width:32px; height:32px; border-radius:50%; text-align:center; line-height:32px; cursor:pointer; font-weight:bold; box-shadow:0 2px 8px rgba(0,0,0,0.25); z-index:10; font-size:16px;">✕</span>
+
+        <!-- กรอบสไลด์รูปภาพ -->
+        <div id="cardSliderContainer" style="position:relative; width:100%; overflow:hidden; border-radius:8px;">
+            <div id="cardTrack" style="display:flex; transition:transform 0.3s ease-in-out; will-change:transform;">
+                <!-- ใส่รูปการ์ดของคุณที่นี่ (เช่น การ์ดหน้า 1 และ หน้า 2) -->
+                <div style="min-width:100%;"><img src="images/card-front.png" alt="Card Front" style="width:100%; max-height:75vh; object-fit:contain; display:block; border-radius:8px;"></div>
+                <div style="min-width:100%;"><img src="images/card-back.png" alt="Card Back" style="width:100%; max-height:75vh; object-fit:contain; display:block; border-radius:8px;"></div>
+            </div>
+
+            <!-- ปุ่มเลื่อน ซ้าย - ขวา -->
+            <button onclick="prevCardSlide()" aria-label="Previous" style="position:absolute; top:50%; left:8px; transform:translateY(-50%); background:rgba(255,255,255,0.85); border:none; width:34px; height:34px; border-radius:50%; cursor:pointer; font-size:16px; font-weight:bold; color:#5A4A42; box-shadow:0 2px 5px rgba(0,0,0,0.2);">❮</button>
+            <button onclick="nextCardSlide()" aria-label="Next" style="position:absolute; top:50%; right:8px; transform:translateY(-50%); background:rgba(255,255,255,0.85); border:none; width:34px; height:34px; border-radius:50%; cursor:pointer; font-size:16px; font-weight:bold; color:#5A4A42; box-shadow:0 2px 5px rgba(0,0,0,0.2);">❯</button>
+        </div>
+
+        <!-- จุดไข่ปลาบอกตำแหน่ง -->
+        <div id="cardDots" style="display:flex; gap:6px; margin-top:12px;">
+            <span class="card-dot active-dot" onclick="goToCardSlide(0)"></span>
+            <span class="card-dot" onclick="goToCardSlide(1)"></span>
+        </div>
+
+        <div style="font-size:11px; color:#888; margin-top:6px;">
+            <i class="fa-solid fa-hand-pointer"></i> ปัดหน้าจอหรือกดปุ่มเพื่อดูหน้าถัดไป
+        </div>
+    </div>
+</div>
+    </section>
+    <!-- Our Story Section -->
+    <section class="story-section" id="story">
+        <div class="container">
+            <div class="story-container">
+                <div class="story-text-side">
+                    <h2 class="section-title">Our Story</h2>
+                    <div class="divider-heart">♡</div>
+                    <p class="story-thai-desc">
+                        จากการพบกันครั้งแรก...<br>
+                        สู่การเดินทางที่เต็มไปด้วยความทรงจำ<br>
+                        ขอบคุณทุกช่วงเวลาที่ทำให้เราได้มาพบกัน<br>
+                        และสร้างความรักที่สวยงามมาจนถึงวันนี้
+                    </p>
+                    <div class="thank-you-script">Thank you for being<br>a part of our story ♡</div>
+                </div>
+                <div class="story-cards-side">
+                    <div class="polaroid-card">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=600" alt="First Met">
+                        <div class="polaroid-title">First Met</div>
+                        <div class="polaroid-date">2020</div>
+                    </div>
+                    <div class="polaroid-card">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=600" alt="In a Relationship">
+                        <div class="polaroid-title">In a Relationship</div>
+                        <div class="polaroid-date">2021</div>
+                    </div>
+                    <div class="polaroid-card">
+                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=600" alt="He Proposed">
+                        <div class="polaroid-title">He Proposed</div>
+                        <div class="polaroid-date">2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Big Day Timeline -->
+    <section class="big-day-section" id="details">
+        <div class="container">
+            <h2 class="section-title">The Big Day</h2>
+            <div class="divider-heart">♡</div>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="timeline-icon"><img src="images/gift.png" alt="Wedding Card Front" width="50" height= auto></div>
+                    <div class="timeline-time">09:09 น.</div>
+                    <div class="timeline-name">พิธีแห่ขันหมาก</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><img src="images/ring2.png" alt="Wedding Card Front" width="100" height= auto></div>
+                    <div class="timeline-time">09:59 น.</div>
+                    <div class="timeline-name">พิธีสวมแหวน</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><img src="images/wrist.png" alt="Wedding Card Front" width="150" height= auto></div>
+                    <div class="timeline-time">10:39 น.</div>
+                    <div class="timeline-name">พิธีผูกข้อไม้ข้อมือ</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><img src="images/food2.png" alt="Wedding Card Front" width="100" height= auto></div>
+                    <div class="timeline-time">11:30 น.</div>
+                    <div class="timeline-name">ฉลองมงคลสมรส<br>(โต๊ะจีน)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section (Location / Dress Code / RSVP) -->
+    <section class="info-section" id="rsvp">
+        <div class="container">
+            <div class="info-grid">
+                <!-- Location -->
+                <div class="info-box">
+                    <div class="info-header"><i class="fa-solid fa-location-dot"></i> Location</div>
+                    <p style="font-size: 13px; font-weight: 600;"></p>
+                    <p style="font-size: 12px; color: #777;">ChangMai, Thailand</p>
+                    <!-- <a href="https://maps.app.goo.gl/95EUTedHMzM2tDXm6" class="btn">View Map</a> -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3778.782573357871!2d99.039391!3d18.718550000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQzJzA2LjgiTiA5OcKwMDInMjEuOCJF!5e0!3m2!1sth!2sth!4v1785261142184!5m2!1sth!2sth"" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                       
+                    <!-- ปุ่มกดเปิดแอปแผนที่นำทาง -->
+             
+                    <a href="https://maps.app.goo.gl/95EUTedHMzM2tDXm6" target="_blank" class="btn" style="margin-top: 12px; font-size: 10px; padding: 8px 18px; background-color: #3a00c1;">
+                        <div>
+                           <img src="images/qr-map.png" alt="map" width="100" height="100">
+                        </div>
+                        <i class="fa-solid fa-diamond-turn-right" style="margin-right: 4px;"></i> Open in Google Maps
+                    </a>
+                </div>
+
+                <!-- Dress Code -->
+                <div class="info-box">
+                    <div class="info-header"><i class="fa-solid fa-heart"></i> Dress Code ธีมสี</div>
+                    <div class="color-palette">
+                        <div class="color-circle" style="background-color: #dea445;"></div>
+                        <div class="color-circle" style="background-color: #ffffff;"></div>
+                        <div class="color-circle" style="background-color: #fbac95;"></div>
+                        <!-- <div class="color-circle" style="background-color: #E8DCD1;"></div>
+                        <div class="color-circle" style="background-color: #C28E85;"></div>
+                        <div class="color-circle" style="background-color: #8C5B55;"></div>
+                        <div class="color-circle" style="background-color: #838383;"></div> -->
+                    </div>
+                    <p style="font-size: 11px; color: #777;">ทอง ขาว ขมพู</p>
+                    <p style="font-size: 11px; color: #777;">Please dress in our color palette</p>
+                </div>
+                <!-- RSVP -->
+                <!-- <div class="info-box">
+                    <div class="info-header"><i class="fa-solid fa-gift"></i> RSVP</div>
+                    <p style="font-size: 12px; color: #666;">กรุณาตอบรับเข้าร่วมงานภายใน<br>22 ตุลาคม 2026</p>
+                    <a href="#" class="btn">RSVP Now</a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-title">Thank You</div>
+        <div class="divider-heart">♡</div>
+        <div class="footer-script">We can't wait to celebrate with you!</div>
+    </footer>
+    <!-- ตัวอย่างการใส่ Script นับถอยหลังอัตโนมัติ -->
+    <script>
+        const weddingDate = new Date("November 22, 2026 07:09:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "HAPPY WEDDING DAY!";
+                return;
+            }
+
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }, 1000);
+
+        //card
+        const cardInner = document.getElementById('weddingCardInner');
+            let isScrolling = false;
+            let startY = 0;
+
+            // ตรวจสอบตำแหน่งการเริ่มแตะหน้าจอ
+            cardInner.addEventListener('touchstart', function(e) {
+                isScrolling = false;
+                startY = e.touches[0].clientY;
+            }, { passive: true });
+
+            // ถ้ามีการเลื่อนนิ้วขึ้น-ลง แสดงว่าแขกกำลังเลื่อนหน้าจอ ไม่ใช่แตะเพื่อพลิกการ์ด
+            cardInner.addEventListener('touchmove', function(e) {
+                if (Math.abs(e.touches[0].clientY - startY) > 10) {
+                    isScrolling = true;
+                }
+            }, { passive: true });
+
+            // ทำการพลิกการ์ดเฉพาะเมื่อเป็นการ "แตะ" เท่านั้น (ไม่ได้เลื่อนหน้าจอ)
+            cardInner.addEventListener('touchend', function(e) {
+                if (!isScrolling) {
+                    e.preventDefault(); // ป้องกัน double tap zoom
+                    cardInner.classList.toggle('flipped');
+                }
+            });
+
+            // รองรับการคลิกบนคอมพิวเตอร์
+            cardInner.addEventListener('click', function() {
+                // ทำงานเฉพาะอุปกรณ์ที่ไม่มีทัชสกรีน หรือใช้เมาส์คลิก
+                if (!('ontouchstart' in window)) {
+                    cardInner.classList.toggle('flipped');
+                }
+            });
+        //card
+
+        //card popup
+            const cardModal = document.getElementById('cardModal');
+    const cardTrack = document.getElementById('cardTrack');
+    const cardDots = document.querySelectorAll('.card-dot');
+    const totalSlides = cardTrack.children.length;
+    let currentCardIndex = 0;
+
+    function openCardModal() {
+        cardModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        updateCardSlider();
+    }
+
+    function closeCardModal() {
+        cardModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeCardModalOnOut(event) {
+        if (event.target === cardModal) {
+            closeCardModal();
+        }
+    }
+
+    /* --- สคริปต์เลื่อนรูป --- */
+    function updateCardSlider() {
+        cardTrack.style.transform = `translateX(-${currentCardIndex * 100}%)`;
+        cardDots.forEach((dot, index) => {
+            dot.classList.toggle('active-dot', index === currentCardIndex);
+        });
+    }
+
+    function nextCardSlide() {
+        currentCardIndex = (currentCardIndex + 1) % totalSlides;
+        updateCardSlider();
+    }
+
+    function prevCardSlide() {
+        currentCardIndex = (currentCardIndex - 1 + totalSlides) % totalSlides;
+        updateCardSlider();
+    }
+
+    function goToCardSlide(index) {
+        currentCardIndex = index;
+        updateCardSlider();
+    }
+
+    /* --- รองรับการเอานิ้วปัด (Swipe) บนมือถือ --- */
+    let swipeStartX = 0;
+    const sliderContainer = document.getElementById('cardSliderContainer');
+
+    sliderContainer.addEventListener('touchstart', (e) => {
+        swipeStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    sliderContainer.addEventListener('touchend', (e) => {
+        const swipeEndX = e.changedTouches[0].clientX;
+        const diffX = swipeStartX - swipeEndX;
+
+        if (Math.abs(diffX) > 30) { // ถ้ารูดเกิน 30px ให้เลื่อนรูป
+            if (diffX > 0) nextCardSlide();
+            else prevCardSlide();
+        }
+    });
+        //card popup
+
+    </script>
+    <style>
+        .map-container {
+            width: 100%;
+            max-width: 360px; /* จำกัดความกว้างไม่ให้ใหญ่เกินไป */
+            height: 240px;    /* ความสูงกะทัดรัดกำลังดี */
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #EBE5E0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+         /* card */
+        .card-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--bg-color);
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            max-width: 320px;
+            height: 480px;
+            perspective: 1000px;
+            margin: 20px auto 0 auto;
+            /* ป้องกันการคลุมดำ/เลือกภาพเวลาแตะย้ำๆ บนมือถือ */
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            /* บังคับให้มือถือใช้ GPU ช่วยประมวลผลเพื่อความลื่นไหล */
+            will-change: transform;
+        }
+
+        /* ใช้ Class .flipped ในการสั่งพลิกการ์ดเพียงอย่างเดียว */
+        .flip-card-inner.flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* เอฟเฟกต์ Hover สำหรับคอมพิวเตอร์เท่านั้น (ไม่กระทบมือถือ) */
+        @media (hover: hover) and (pointer: fine) {
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* บังคับใช้ใน Safari/iOS */
+            backface-visibility: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid #EBE5E0;
+            background-color: #fff;
+            /* ป้องกันภาพทะลุใน Safari มือถือ */
+            transform: translateZ(0);
+        }
+
+        .flip-card-front img, .flip-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none; /* ป้องกันการกดค้างเพื่อเซฟรูปบนมือถือขณะจะพลิก */
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg) translateZ(0);
+        }
+
+        .flip-hint {
+            font-size: 11px;
+            color: #888;
+            margin-top: 15px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /*card popup*/
+        /* สไตล์สำหรับจุดไข่ปลา */
+        .card-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #DDD;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .card-dot.active-dot {
+            background-color: #C48B81; /* สีตามธีมงาน */
+            width: 18px;
+            border-radius: 10px;
+        }
+
+    </style>
+
+</body>
+</html>
