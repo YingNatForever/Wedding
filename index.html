@@ -27,6 +27,11 @@
             --font-cursive: 'Great Vibes', cursive;
             --font-thai-script: 'Charm', cursive;
             --font-sans: 'Montserrat', sans-serif;
+            --primary-gold-rsvp: #d4a373;
+            --primary-hover-rsvp: #bc8a5f;
+            --text-dark-rsvp: #4a3e3d;
+            --text-light-rsvp: #8a7a78;
+            --bg-gradient-rsvp: linear-gradient(135deg, #fff5f5 0%, #f7ebe1 100%);
         }
 
         * {
@@ -101,6 +106,7 @@
             display: flex;
             list-style: none;
             gap: 30px;
+            font-family: 'Kanit', sans-serif;
         }
 
         nav a {
@@ -828,7 +834,191 @@
             animation: gentleRotate 20s linear infinite; /* หมุนรอบตัวเองแบบสโลว์โมชั่น */
         }
 
-        
+        /* RSVP */
+         /* ปรับโครงสร้างกล่องการ์ดให้เป็น Flex แนวนอนกว้างขึ้น */
+        .card-rsvp-section {
+            text-align: center;
+            background-color: var(--bg-color);
+            font-family: 'Noto Sans Thai', sans-serif;
+            background: var(--bg-gradient-rsvp);
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            min-height: 80vh; 
+            padding: 20px;
+            color: var(--text-dark-rsvp);
+        }
+        .card-rsvp {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 900px; /* ขยายความกว้างสำหรับการวางแนวนอน */
+            width: 100%;
+            border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(165, 143, 114, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* ฝั่งซ้าย: โชว์ปกธีมงานแต่ง (ชื่อบ่าวสาว) */
+        .card-left-rsvp {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(243,234,225,0.4) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            border-right: 1px solid rgba(197, 168, 128, 0.2);
+            text-align: center;
+        }
+
+        /* ฝั่งขวา: ฟอร์มสำหรับกรอกข้อมูล */
+        .card-right-rsvp {
+            flex: 1.2;
+            padding: 40px;
+            background: #ffffff;
+        }
+
+        .heart-icon-rsvp {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            animation: float-rsvp 3s ease-in-out infinite;
+        }
+
+        h2 { 
+            font-family: 'Alex Brush', cursive; 
+            color: var(--primary-gold-rsvp); 
+            font-size: 3.8rem; 
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .sub-title-rsvp { 
+            color: var(--text-light-rsvp); 
+            font-size: 0.95rem; 
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        .form-group-rsvp { 
+            text-align: left; 
+            margin-bottom: 18px; 
+        }
+
+        label { 
+            display: block; 
+            font-size: 0.85rem; 
+            color: var(--text-dark-rsvp); 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            letter-spacing: 0.5px;
+        }
+
+        input, textarea, select {
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            background: #fafafa;
+            border-radius: 12px; 
+            font-family: 'Noto Sans Thai', sans-serif; 
+            font-size: 0.95rem;
+            color: var(--text-dark-rsvp);
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus { 
+            border-color: var(--primary-gold-rsvp); 
+            background: #ffffff;
+            outline: none; 
+            box-shadow: 0 0 0 4px rgba(197, 168, 128, 0.15);
+        }
+
+        textarea { resize: none; }
+
+        /* ตกแต่งส่วนปุ่มวิทยุ (Radio Buttons) ของการร่วมงานให้ดูโมเดิร์นขึ้น */
+        .radio-group-rsvp {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-label-rsvp {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #fafafa;
+            border: 1px solid rgba(197, 168, 128, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: all 0.2s;
+        }
+
+        /* ซ่อนวงกลมวิทยุแบบดั้งเดิม */
+        .radio-group-rsvp input[type="radio"] {
+            display: none;
+        }
+
+        /* เมื่อติ๊กเลือก ให้เปลี่ยนสีพื้นหลังปุ่มวิทยุ */
+        .radio-group-rsvp input[type="radio"]:checked + .radio-label-rsvp {
+            background: rgba(197, 168, 128, 0.15);
+            border-color: var(--primary-gold-rsvp);
+            font-weight: 500;
+            color: #8c714a;
+        }
+
+        /* ซ่อนส่วนเลือกจำนวนผู้ร่วมงานกรณีเลือกไม่สะดวกร่วมงาน */
+        .dynamic-field-rsvp {
+            transition: all 0.3s ease;
+        }
+
+        button-rsvp {
+            width: 100%; 
+            padding: 14px; 
+            background: linear-gradient(135deg, var(--primary-gold-rsvp) 0%, #b3946a 100%);
+            color: white;
+            border: none; 
+            border-radius: 12px; 
+            font-size: 1rem; 
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px; 
+            box-shadow: 0 6px 15px rgba(197, 168, 128, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        button:hover { 
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(197, 168, 128, 0.35);
+        }
+
+        button:disabled { background: #cccccc; box-shadow: none; cursor: not-allowed; }
+
+        #status-rsvp { margin-top: 15px; font-size: 0.9rem; text-align: center; display: none; }
+        .success-rsvp { color: #2d7a4d; background: #eef9f1; padding: 10px; border-radius: 8px; border: 1px solid #cbeed4; display: block !important; }
+        .error-rsvp { color: #af2323; background: #fdf2f2; padding: 10px; border-radius: 8px; border: 1px solid #f8d7d7; display: block !important; }
+
+        @keyframes float-rsvp {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive: ถ้าหน้าจอมือถือแคบ ให้สลับกลับมาเป็นแนวตั้งเพื่อความสวยงาม */
+        @media (max-width: 768px) {
+            .card-rsvp { flex-direction: column; }
+            .card-left-rsvp { padding: 30px 20px; border-right: none; border-bottom: 1px solid rgba(197, 168, 128, 0.2); }
+            .card-right-rsvp { padding: 30px 20px; }
+            h2 { font-size: 3.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -837,12 +1027,13 @@
         <div class="logoYN"></div>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#card">Card</a></li>
-                <li><a href="#story">Our Story</a></li>
+                <li><a href="#home" style="font-weight: 600; font-size: 16px;">•หน้าแรก</a></li>
+                <li><a href="#card" style="font-weight: 600; font-size: 16px;">•การ์ด</a></li>
+                <li><a href="#rsvp" style="font-weight: 600; font-size: 16px;">•อวยพร</a></li>
+                <li><a href="#story" style="font-weight: 600; font-size: 16px;">•เรื่องราว</a></li>
                 <!-- <li><a href="#gallery">Gallery</a></li> -->
-                <li><a href="#details">Details</a></li>
-                <li><a href="#rsvp">Location</a></li>
+                <li><a href="#details" style="font-weight: 600; font-size: 16px;">•กำหนดการ</a></li>
+                <li><a href="#location" style="font-weight: 600; font-size: 16px;">•แผนที่/ธีมสี</a></li>
             </ul>
         </nav>
         <div></div>
@@ -864,7 +1055,7 @@
     </section>
 
     <!-- Countdown Timer -->
-         <section class="countdown-section">
+    <section class="countdown-section">
     <div class="section-title">Countdown to Our Big Day</div>
     <div class="divider-heart">♡</div>
     <div class="wedding-date">22 November 2026</div>
@@ -895,7 +1086,7 @@
         </div>
     </div>
 </div>
-</section>
+    </section>
 
     <!-- Invitation Card Section -->
     <section class="card-section" id="card" data-aos="fade-up">
@@ -920,7 +1111,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 20px;">
-            <button onclick="openCardModal()" class="btn" style="border:none; cursor:pointer;">
+            <button onclick="openCardModal()" class="btn" style="border:none; cursor:pointer; padding: 14px; font-size: 14px; font-weight: 500;">
                 ดูการ์ดเชิญฉบับเต็ม
             </button>
         </div>
@@ -947,6 +1138,77 @@
                 <div style="font-size:11px; color:#888; margin-top:6px;">
                     <i class="fa-solid fa-hand-pointer"></i> ปัดหน้าจอหรือกดปุ่มเพื่อดูหน้าถัดไป
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="card-rsvp-section" id="rsvp" data-aos="fade-up">
+        <div class="card-rsvp">
+            <!-- ฝั่งซ้าย: หน้าปกการ์ด -->
+            <div class="card-left-rsvp">
+                 <div class="heart-icon-rsvp">
+                    <img src="images/Logo.png" class="heart-icon-rsvp" alt="Wedding Logo" style="width: 185px; height: 185px; object-fit: contain; animation: float-rsvp 3s ease-in-out infinite;">
+                </div>
+                <!-- <h2 class="names">Ying & Nat</h2> -->
+                <div class="sub-title-rsvp">
+                    ยินดีต้อนรับสู่กล่องความทรงจำ<br>
+                    ร่วมส่งคำอวยพรและแจ้งสถานะการร่วมงาน<br>
+                    แด่คู่บ่าวสาว
+                </div>
+            </div>
+            
+            <!-- ฝั่งขวา: ฟอร์มกรอกข้อความ -->
+            <div class="card-right-rsvp">
+                <form id="wishesFormRsvp" onsubmit="submitFormRsvp(event)">
+                    <div class="form-group-rsvp">
+                        <label for="senderName">ชื่อของคุณ</label>
+                        <input type="text" id="senderName" name="senderName" placeholder="เช่น นายA A(เพื่อนเจ้าบ่าวเจ้าสาว)" required>
+                    </div>
+                    
+                    <!-- ส่วนเลือกการสะดวกร่วมงาน -->
+                    <div class="form-group-rsvp">
+                        <label>ความสะดวกร่วมงาน (RSVP)</label>
+                        <div class="radio-group-rsvp">
+                            <input type="radio" id="attend-yes" name="attendance" value="สะดวกร่วมงาน" checked onclick="toggleGuestCountRsvp(true)">
+                            <label for="attend-yes" class="radio-label-rsvp">สะดวกร่วมงาน</label>
+                            
+                            <input type="radio" id="attend-no" name="attendance" value="ไม่สะดวกร่วมงาน" onclick="toggleGuestCountRsvp(false)">
+                            <label for="attend-no" class="radio-label-rsvp">ติดภารกิจ (ส่งใจไปร่วม)</label>
+                        </div>
+                    </div>
+
+                    <!-- ส่วนเลือกจำนวนผู้ร่วมงาน -->
+                    <div class="form-group-rsvp dynamic-field-rsvp" id="guestCountGroupRsvp">
+                        <label for="guestCount">จำนวนผู้มาร่วมงาน (รวมตัวท่าน)</label>
+                        <select id="guestCount" name="guestCount">
+                            <option value="1">1 ท่าน</option>
+                            <option value="2">2 ท่าน</option>
+                            <option value="3">3 ท่าน</option>
+                            <option value="4">4 ท่าน</option>
+                            <option value="5+">5 ท่านขึ้นไป</option>
+                        </select>
+                    </div>
+
+                    <!-- ส่วนกรอกคำอวยพร -->
+                    <div class="form-group-rsvp">
+                        <label for="weddingBlessing">คำอวยพรแด่คู่บ่าวสาว</label>
+                        <textarea id="weddingBlessing" name="weddingBlessing" rows="4" placeholder="ขอให้มีความสุขในชีวิตคู่ ถือไม้เท้ายอดทองกระบองยอดเพชรนะคะ..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtnRsvp" style="  width: 100%; 
+                        padding: 14px; 
+                        background: linear-gradient(135deg, var(--primary-gold-rsvp) 0%, #b3946a 100%);
+                        color: white;
+                        border: none; 
+                        border-radius: 12px; 
+                        font-size: 1rem; 
+                        font-weight: 500;
+                        cursor: pointer;
+                        margin-top: 10px; 
+                        box-shadow: 0 6px 15px rgba(197, 168, 128, 0.25);
+                        transition: all 0.3s ease;">ส่งคำอวยพร</button>
+                    <div id="status-rsvp"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -1073,7 +1335,7 @@
     </section>
 
     <!-- Info Section (Location / Dress Code) -->
-    <section class="info-section" id="rsvp" data-aos="fade-up">
+    <section class="info-section" id="location" data-aos="fade-up">
         <div class="container">
             <div class="info-grid">
                 <!-- Location -->
@@ -1270,6 +1532,69 @@
                 if (e.key === 'Escape') closeLightbox();
             }
         });
+
+    const SCRIPT_URL_RSVP = 'https://script.google.com/macros/s/AKfycbzM71AsHYE4zzA-ydKfsb1B048ylN_d1CcGtvLXUcXtUY2vfdYANxBG3wicgzTFinA/exec';
+    function toggleGuestCountRsvp(show) {
+        const guestGroup = document.getElementById('guestCountGroupRsvp');
+        const guestSelect = document.getElementById('guestCount');
+        if (show) {
+            guestGroup.style.display = 'block';
+            guestSelect.value = '1';
+        } else {
+            guestGroup.style.display = 'none';
+            guestSelect.value = '0 (ไม่ร่วมงาน)'; 
+        }
+    }
+
+    function submitFormRsvp(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('wishesFormRsvp');
+        const submitBtn = document.getElementById('submitBtnRsvp');
+        const statusDiv = document.getElementById('status-rsvp');
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'กำลังบันทึกข้อมูลลง Google Sheet...';
+        statusDiv.className = '';
+        statusDiv.style.display = 'none';
+
+        const formData = new FormData(form);
+        const searchParams = new URLSearchParams();
+        for (const pair of formData) {
+            searchParams.append(pair[0], pair[1]);
+        }
+
+        fetch(SCRIPT_URL_RSVP, {
+            method: 'POST',
+            body: searchParams,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                statusDiv.innerText = '✨ บันทึกข้อมูลและส่งคำอวยพรเรียบร้อยแล้ว ขอบคุณครับ/ขอบคุณค่ะ';
+                statusDiv.className = 'success-rsvp';
+                form.reset();
+                toggleGuestCountRsvp(true);
+            } else {
+                statusDiv.innerText = '❌ เกิดข้อผิดพลาดจากระบบหลังบ้าน: ' + (data.error || 'ไม่สามารถบันทึกได้');
+                statusDiv.className = 'error-rsvp';
+            }
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            statusDiv.innerText = '✨ บันทึกข้อมูลและส่งคำอวยพรเรียบร้อยแล้ว ขอบคุณครับ/ขอบคุณค่ะ';
+            statusDiv.className = 'success-rsvp';
+            form.reset();
+            toggleGuestCountRsvp(true);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'ส่งคำอวยพรและยืนยัน RSVP';
+        });
+    }
     </script>
 </body>
 </html>
